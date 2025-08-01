@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELIMU KUSOMA - Educational Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-graduation-cap"></i> ELIMU KUSOMA</h2>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Education Levels <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#primary">Primary Schools</a>
+                        <a href="#secondary">Secondary Schools</a>
+                        <a href="#vocational">Vocational Training</a>
+                        <a href="#university">Universities</a>
+                    </div>
+                </div>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="nav-auth">
+                    <button class="btn-login" onclick="openLoginModal()">Login</button>
+                    <button class="btn-register" onclick="openRegisterModal()">Register</button>
+                </div>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to ELIMU KUSOMA</h1>
+            <p class="hero-subtitle">Providing Quality Education Services for All Levels</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToLevels()">Start Learning</button>
+                <button class="btn-secondary" onclick="openRegisterModal()">Join Now</button>
+            </div>
+        </div>
+        <div class="hero-video">
+            <video autoplay muted loop>
+                <source src="class-session1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Education Levels Section -->
+    <section id="levels" class="levels-section">
+        <div class="container">
+            <h2 class="section-title">Choose Your Education Level</h2>
+            <div class="levels-grid">
+                <div class="level-card" onclick="openLevelPage('primary')">
+                    <div class="level-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Primary Schools</h3>
+                    <p>Foundation education for young learners</p>
+                    <div class="level-stats">
+                        <span>50+ Schools</span>
+                        <span>1000+ Students</span>
+                    </div>
+                </div>
+                
+                <div class="level-card" onclick="openLevelPage('secondary')">
+                    <div class="level-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Secondary Schools</h3>
+                    <p>Advanced learning for teenagers</p>
+                    <div class="level-stats">
+                        <span>30+ Schools</span>
+                        <span>800+ Students</span>
+                    </div>
+                </div>
+                
+                <div class="level-card" onclick="openLevelPage('vocational')">
+                    <div class="level-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Vocational Training</h3>
+                    <p>Practical skills and career training</p>
+                    <div class="level-stats">
+                        <span>20+ Colleges</span>
+                        <span>500+ Students</span>
+                    </div>
+                </div>
+                
+                <div class="level-card" onclick="openLevelPage('university')">
+                    <div class="level-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Universities</h3>
+                    <p>Higher education and research</p>
+                    <div class="level-stats">
+                        <span>15+ Universities</span>
+                        <span>2000+ Students</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login to ELIMU KUSOMA</h2>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p class="auth-link">Don't have an account? <a href="#" onclick="switchToRegister()">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegisterModal()">&times;</span>
+            <h2>Register for ELIMU KUSOMA</h2>
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="registerConfirmPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+            <p class="auth-link">Already have an account? <a href="#" onclick="switchToLogin()">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ELIMU KUSOMA</h3>
+                    <p>Providing quality education services to all levels of learners.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#levels">Education Levels</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +255 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@elimukusoma.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ELIMU KUSOMA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
